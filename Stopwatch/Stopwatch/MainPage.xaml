@@ -2,10 +2,41 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Stopwatch"
-             x:Class="Stopwatch.MainPage">
+             x:Class="Stopwatch.MainPage"
+             Title="StopWatch"
+             >
+    <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+    <Label Text="Stopwatch" 
+           Grid.Row="0"
+           Grid.Column="0"
+           Grid.ColumnSpan="2"
+           FontSize="60"
+           VerticalTextAlignment="Center" 
+           HorizontalTextAlignment="Center" />
+    <Label Text="0:00"
+           Grid.Row="1"
+           Grid.Column="0"
+           Grid.ColumnSpan="2"
+           FontSize="100"
+           VerticalTextAlignment="Center" 
+           HorizontalTextAlignment="Center" />
+    <Button Text="Start"
+           Grid.Row="2"
+           Grid.Column="0"               
+           />
+    <Button Text="Reset"
+            Grid.Row="2"
+            Grid.Column="1"
+            />
 
-	<Label Text="Welcome to Xamarin Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
-
+    </Grid>
 </ContentPage>

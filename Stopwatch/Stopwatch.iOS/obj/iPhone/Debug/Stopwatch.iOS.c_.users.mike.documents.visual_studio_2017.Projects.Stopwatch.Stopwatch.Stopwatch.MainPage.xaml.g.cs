@@ -11,13 +11,17 @@
 namespace Stopwatch {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("c:\\users\\mike\\documents\\visual studio 2017\\Projects\\Stopwatch\\Stopwatch\\Stopwatch" +
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Mike\\documents\\visual studio 2017\\Projects\\Stopwatch\\Stopwatch\\Stopwatch" +
         "\\MainPage.xaml")]
     public partial class MainPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Grid controlGrid;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(MainPage));
+            controlGrid = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Grid>(this, "controlGrid");
         }
     }
 }

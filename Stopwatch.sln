@@ -13,6 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stopwatch.UWP", "Stopwatch\
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Stopwatch\Stopwatch\Stopwatch.projitems*{02fed120-9ac3-4030-b87c-08197309f045}*SharedItemsImports = 4
 		Stopwatch\Stopwatch\Stopwatch.projitems*{18c423de-3ca1-4c13-be87-519701452619}*SharedItemsImports = 4
 		Stopwatch\Stopwatch\Stopwatch.projitems*{7a02280b-527e-4463-b23e-1ccbc52d8d42}*SharedItemsImports = 4
 		Stopwatch\Stopwatch\Stopwatch.projitems*{be896d3b-4d03-40f2-9d07-a2b2a6db6a60}*SharedItemsImports = 13
