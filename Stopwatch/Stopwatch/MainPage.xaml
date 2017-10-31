@@ -1,10 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Stopwatch"
+             xmlns:local="clr-namespace:Stopwatch;assembly=Stopwatch"
              x:Class="Stopwatch.MainPage"
              Title="StopWatch"
              >
+    <ContentPage.BindingContext>
+        <local:StopwatchViewModel></local:StopwatchViewModel>
+    </ContentPage.BindingContext>
     <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -15,30 +18,34 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-    <Label Text="Stopwatch" 
-           Grid.Row="0"
-           Grid.Column="0"
-           Grid.ColumnSpan="2"
-           FontSize="60"
-           VerticalTextAlignment="Center" 
-           HorizontalTextAlignment="Center" />
     <Label 
-           Text="0:00"
-           Grid.Row="1"
-           Grid.Column="0"
-           Grid.ColumnSpan="2"
-           FontSize="100"
-           VerticalTextAlignment="Center" 
-           HorizontalTextAlignment="Center" 
-           />
-    <Button Text="Start"
-           Grid.Row="2"
-           Grid.Column="0"               
-           />
-    <Button Text="Reset"
-            Grid.Row="2"
-            Grid.Column="1"
-            />
+        Text="Stopwatch" 
+        Grid.Row="0"
+        Grid.Column="0"
+        Grid.ColumnSpan="2"
+        FontSize="60"
+        VerticalTextAlignment="Center" 
+        HorizontalTextAlignment="Center" />
+        <Label              
+        Text="{Binding TimerTime}"
+        Grid.Row="1"
+        Grid.Column="0"
+        Grid.ColumnSpan="2"
+        FontSize="100"
+        VerticalTextAlignment="Center" 
+        HorizontalTextAlignment="Center">
+        </Label>
+    <Button 
+        Text="Start"
+        Grid.Row="2"
+        Grid.Column="0"
+        Clicked="OnStartButtonClicked"
+        />
+    <Button 
+        Text="Reset"
+        Grid.Row="2"
+        Grid.Column="1"
+        />
 
     </Grid>
 </ContentPage>
