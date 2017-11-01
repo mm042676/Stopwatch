@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Stopwatch
+namespace Stopwatch.ViewModel
 {
     public partial class StopwatchViewModel : INotifyPropertyChanged
     {
