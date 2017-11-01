@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Stopwatch.view
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class SimpleStopwatch. : ContentPage
+	public partial class SimpleStopwatch : ContentPage
 	{
-		public SimpleStopwatch. ()
+		public SimpleStopwatch ()
 		{
 			InitializeComponent ();
 		}
