@@ -17,6 +17,10 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)model\StopwatchModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)viewmodel\StopwatchViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)view\SimpleStopwatch..xaml.cs">
+      <DependentUpon>SimpleStopwatch..xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)MainPage.xaml">
@@ -24,6 +28,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)view\SimpleStopwatch..xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
