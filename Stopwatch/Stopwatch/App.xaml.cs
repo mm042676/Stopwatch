@@ -13,7 +13,7 @@ namespace Stopwatch
         {
             InitializeComponent();
 
-            MainPage = new Stopwatch.MainPage();
+            MainPage = new View.Stopwatch();
         }
 
         protected override void OnStart()
