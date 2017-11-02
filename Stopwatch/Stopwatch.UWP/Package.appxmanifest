@@ -6,12 +6,12 @@
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   IgnorableNamespaces="uap mp">
 
-  <Identity 
-    Name="595f6283-7b69-4d7a-bab8-6bedcbd60909"
+  <Identity
+    Name="8f5466dc-2ee5-486d-a096-119b5421b1b4"
     Publisher="CN=Mike"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="f736c883-f105-4d30-a719-4bf328872f5e" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="8f5466dc-2ee5-486d-a096-119b5421b1b4" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Stopwatch.UWP</DisplayName>
@@ -29,8 +29,8 @@
 
   <Applications>
     <Application Id="App"
-        Executable="$targetnametoken$.exe"
-        EntryPoint="Stopwatch.UWP.App">
+      Executable="$targetnametoken$.exe"
+      EntryPoint="Stopwatch.UWP.App">
       <uap:VisualElements
         DisplayName="Stopwatch.UWP"
         Square150x150Logo="Assets\Square150x150Logo.png"
