@@ -15,6 +15,7 @@ namespace Stopwatch.View
         public Stopwatch()
         {
             InitializeComponent();
+
         }
     }
 }

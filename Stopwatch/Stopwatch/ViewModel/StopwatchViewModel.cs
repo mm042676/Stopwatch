@@ -10,9 +10,12 @@ namespace Stopwatch.ViewModel
 {
     class StopwatchViewModel : INotifyPropertyChanged
     {
-        string TimerTime = "0:00";
+        string TimerTime;
 
-        public static void Init() { }
+        public StopwatchViewModel()
+        {
+            this.TimerTime = "0:00";
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
