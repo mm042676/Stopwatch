@@ -12,9 +12,13 @@ namespace Stopwatch.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Stopwatch : ContentPage
     {
+        ViewModel.StopwatchViewModel _viewModel;
+
         public Stopwatch()
         {
-            InitializeComponent();
+ //           InitializeComponent();
+            _viewModel = new ViewModel.StopwatchViewModel();
+
 
         }
     }
