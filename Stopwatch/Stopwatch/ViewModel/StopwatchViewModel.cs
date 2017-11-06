@@ -14,7 +14,7 @@ namespace Stopwatch.ViewModel
 
         public StopwatchViewModel()
         {
-            this.TimerTime = "0:00";
+            TimerTime = "0:00";
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
