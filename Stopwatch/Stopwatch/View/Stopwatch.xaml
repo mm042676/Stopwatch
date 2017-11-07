@@ -24,6 +24,7 @@
                 FontSize="60"
                 VerticalTextAlignment="Center" 
                 HorizontalTextAlignment="Center" />
+        <!--                -->
         <Label              
                 Text="{Binding TimerTime}"
                 Grid.Row="1"
@@ -38,6 +39,7 @@
                 Grid.Row="2"
                 Grid.Column="0"
                 Clicked="OnStartButtonClicked"
+                
                 />
         <Button 
                 Text="Reset"
