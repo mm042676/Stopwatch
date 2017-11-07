@@ -10,16 +10,30 @@ using Xamarin.Forms.Xaml;
 namespace Stopwatch.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Stopwatch : ContentPage
+    public partial class StopwatchView : ContentPage
     {
         ViewModel.StopwatchViewModel _viewModel;
 
-        public Stopwatch()
+        public StopwatchView()
         {
  //           InitializeComponent();
             _viewModel = new ViewModel.StopwatchViewModel();
 
 
+        }
+
+        void OnStartButtonClicked(object sender, EventArgs args)
+        {
+            if (_viewModel.IsRunning())
+            {
+                StartStopButton.Text = "Start";
+                _viewModel.Stop();
+            }
+            else
+            {
+                StartStopButton.Text = "Stop";
+                _viewModel.Start();
+            }
         }
     }
 }

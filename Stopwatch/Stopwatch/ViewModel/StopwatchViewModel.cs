@@ -8,10 +8,13 @@ using Xamarin.Forms;
 
 namespace Stopwatch.ViewModel
 {
+    using Model;
+    using View;
+
     class StopwatchViewModel : INotifyPropertyChanged
     {
         private string _TimerTime;
-        private Stopwatch _StopwatchInstance = new Stopwatch();
+        private StopwatchModel _StopwatchInstance = new StopwatchModel();
 
         public StopwatchViewModel()
         {
@@ -20,9 +23,24 @@ namespace Stopwatch.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        void OnStartButtonClicked(object sender, EventArgs args)
+        public bool IsRunning()
         {
-            if (_StopwatchInstance.IsRunning())
+            return _StopwatchInstance.IsRunning();
+        }
+        
+        public void Stop()
+        {
+            _StopwatchInstance.Stop();
+        }
+
+        public void Start()
+        {
+            _StopwatchInstance.Start();
+        }
+
+        public void Reset()
+        {
+            _StopwatchInstance.Reset();
         }
     }
 }

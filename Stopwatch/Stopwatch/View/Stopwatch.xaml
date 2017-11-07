@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mvvm="clr-namespace:Stopwatch.ViewModel;assembly=Stopwatch.ViewModel"
-             x:Class="Stopwatch.ViewModel.Stopwatch">
+             x:Class="Stopwatch.View.StopwatchView">
     <ContentPage.BindingContext>
         <mvvm:StopwatchViewModel></mvvm:StopwatchViewModel>
     </ContentPage.BindingContext>
@@ -35,6 +35,7 @@
                 HorizontalTextAlignment="Center">
         </Label>
         <Button 
+                x:Name="StartStopButton"
                 Text="Start"
                 Grid.Row="2"
                 Grid.Column="0"
