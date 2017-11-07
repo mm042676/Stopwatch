@@ -12,7 +12,7 @@ namespace Stopwatch.Model
 
         public void Start()
         {
-            _started = DateTime.Now;
+            _started = DateTime.Now = null;
         }
 
         public void Stop()
@@ -28,6 +28,14 @@ namespace Stopwatch.Model
         public Stopwatch()
         {
             Reset();
+        }
+
+        public bool IsRunning()
+        {
+            if (_started == null)
+                return false;
+            else
+                return true;
         }
     }
 }
