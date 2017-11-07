@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Stopwatch.Model
 {
-    public partial class Stopwatch
+    public partial class StopwatchModel
     {
         private DateTime? _started;
 
         public void Start()
         {
-            _started = DateTime.Now = null;
+            _started = DateTime.Now;
         }
 
         public void Stop()
@@ -25,7 +25,7 @@ namespace Stopwatch.Model
             _started = null;
         }
 
-        public Stopwatch()
+        public StopwatchModel()
         {
             Reset();
         }
