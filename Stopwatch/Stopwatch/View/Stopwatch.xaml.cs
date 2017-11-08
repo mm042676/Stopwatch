@@ -35,5 +35,9 @@ namespace Stopwatch.View
                 _viewModel.Start();
             }
         }
+        void OnResetButtonClicked(object sender, EventArgs arg)
+        {
+            _viewModel.Reset();
+        }
     }
 }

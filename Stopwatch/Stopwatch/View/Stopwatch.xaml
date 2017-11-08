@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:mvvm="clr-namespace:Stopwatch.ViewModel;assembly=Stopwatch.ViewModel"
+             xmlns:mvvm="clr-namespace:Stopwatch.ViewModel;assembly=Stopwatch"
              x:Class="Stopwatch.View.StopwatchView">
     <ContentPage.BindingContext>
         <mvvm:StopwatchViewModel></mvvm:StopwatchViewModel>
@@ -43,9 +43,11 @@
                 
                 />
         <Button 
+                x:Name="ResetButton"
                 Text="Reset"
                 Grid.Row="2"
                 Grid.Column="1"
+                Clicked="OnResetButtonClicked"
             />
 
     </Grid>
