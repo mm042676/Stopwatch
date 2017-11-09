@@ -13,12 +13,13 @@ namespace Stopwatch.ViewModel
 
     class StopwatchViewModel : INotifyPropertyChanged
     {
-        private string _TimerTime;
+        public string TimerTime { get; }
+
         private StopwatchModel _StopwatchInstance = new StopwatchModel();
 
         public StopwatchViewModel()
         {
-            _TimerTime = "0:00";
+            TimerTime = "0:00";
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
