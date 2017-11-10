@@ -12,19 +12,19 @@ namespace Stopwatch.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class StopwatchView : ContentPage
     {
-        ViewModel.StopwatchViewModel _viewModel;
+//        private ViewModel.StopwatchViewModel _viewModel;
 
         public StopwatchView()
         {
             InitializeComponent();
-            _viewModel = new ViewModel.StopwatchViewModel();
+//            _viewModel = new ViewModel.StopwatchViewModel();
 
 
         }
 
         void OnStartButtonClicked(object sender, EventArgs args)
         {
-            if (_viewModel.IsRunning())
+            if (StopwatchViewModel.IsRunning())
             {
                 StartStopButton.Text = "Start";
                 _viewModel.Stop();
