@@ -8,21 +8,21 @@ namespace Stopwatch.Model
 {
     public partial class StopwatchModel
     {
-        private DateTime? _started;
+        public DateTime? Started { get; private set; }
 
         public void Start()
         {
-            _started = DateTime.Now;
+            Started = DateTime.Now;
         }
 
         public void Stop()
         {
-            _started = null;
+            Started = null;
         }
 
         public void Reset()
         {
-            _started = null;
+            Started = null;
         }
 
         public StopwatchModel()
@@ -32,10 +32,11 @@ namespace Stopwatch.Model
 
         public bool IsRunning()
         {
-            if (_started == null)
+            if (Started == null)
                 return false;
             else
                 return true;
         }
+        
     }
 }
