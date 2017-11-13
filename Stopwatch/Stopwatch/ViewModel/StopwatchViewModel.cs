@@ -14,7 +14,20 @@ namespace Stopwatch.ViewModel
 
     class StopwatchViewModel : INotifyPropertyChanged
     {
-        public string TimerTime { get; private set; }
+        private string _TimerTime;
+        public string TimerTime
+        {
+            get
+            {
+                return _TimerTime;
+            }
+            private set {
+                _TimerTime = value;
+                NotifyPropertyChanged("TimerTime");
+            }
+        }
+           
+        
    
         private StopwatchModel _StopwatchInstance = new StopwatchModel();
 
@@ -24,6 +37,12 @@ namespace Stopwatch.ViewModel
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged (string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         public bool IsRunning()
         {
@@ -38,6 +57,7 @@ namespace Stopwatch.ViewModel
         public void Start()
         {
             _StopwatchInstance.Start();
+            TimerTime = "1:00";
             Device.StartTimer(TimeSpan.FromMilliseconds(50), _timerTick);
         }
 
