@@ -11,7 +11,28 @@ using Xamarin.Forms;
 namespace Stopwatch.ViewModel
 {
     using Model;
+    // todo: implement the code commented below in an icommand interface
+    // https://developer.xamarin.com/guides/xamarin-forms/xaml/xaml-basics/data_bindings_to_mvvm/
 
+    /*
+     void OnStartButtonClicked(object sender, EventArgs args)
+        {
+            if (StopwatchViewModel.IsRunning())
+            {
+                StartStopButton.Text = "Start";
+                _viewModel.Stop();
+            }
+            else
+            {
+                StartStopButton.Text = "Stop";
+                _viewModel.Start();
+            }
+        }
+        void OnResetButtonClicked(object sender, EventArgs arg)
+        {
+            _viewModel.Reset();
+        }
+         */
     class StopwatchViewModel : INotifyPropertyChanged
     {
         private string _TimerTime;
