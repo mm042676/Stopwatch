@@ -22,22 +22,6 @@ namespace Stopwatch.View
 
         }
 
-        void OnStartButtonClicked(object sender, EventArgs args)
-        {
-            if (StopwatchViewModel.IsRunning())
-            {
-                StartStopButton.Text = "Start";
-                _viewModel.Stop();
-            }
-            else
-            {
-                StartStopButton.Text = "Stop";
-                _viewModel.Start();
-            }
-        }
-        void OnResetButtonClicked(object sender, EventArgs arg)
-        {
-            _viewModel.Reset();
-        }
+        
     }
 }
