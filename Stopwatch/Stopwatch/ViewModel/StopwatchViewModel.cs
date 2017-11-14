@@ -82,10 +82,11 @@ namespace Stopwatch.ViewModel
             Device.StartTimer(TimeSpan.FromMilliseconds(50), _timerTick);
         }
 
-        public void Reset()
+        Reset = new Command (() =>
         {
             _StopwatchInstance.Reset();
-        }
+            return true;
+        });
 
         private bool _timerTick()
         {
@@ -98,5 +99,8 @@ namespace Stopwatch.ViewModel
             else
                 return true;
         }
+
+        public ICommand Reset { protected set; get; }
+        
     }
 }
