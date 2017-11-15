@@ -5,12 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 using Xamarin.Forms;
 
 namespace Stopwatch.ViewModel
 {
     using Model;
+
+ 
+
     // todo: implement the code commented below in an icommand interface
     // https://developer.xamarin.com/guides/xamarin-forms/xaml/xaml-basics/data_bindings_to_mvvm/
 
@@ -46,15 +50,20 @@ namespace Stopwatch.ViewModel
                 _TimerTime = value;
                 NotifyPropertyChanged("TimerTime");
             }
-        }
-           
-        
+        }        
    
         private StopwatchModel _StopwatchInstance = new StopwatchModel();
 
         public StopwatchViewModel()
         {
             TimerTime = "0:00";
+
+            // I think reset works; need to link it to the xaml file
+
+            Reset = new Command(() =>
+            {
+                _StopwatchInstance.Reset();
+            });
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -82,11 +91,6 @@ namespace Stopwatch.ViewModel
             Device.StartTimer(TimeSpan.FromMilliseconds(50), _timerTick);
         }
 
-        Reset = new Command (() =>
-        {
-            _StopwatchInstance.Reset();
-            return true;
-        });
 
         private bool _timerTick()
         {
@@ -100,7 +104,7 @@ namespace Stopwatch.ViewModel
                 return true;
         }
 
-        public ICommand Reset { protected set; get; }
-        
+        public ICommand Reset { get; set; }
+
     }
 }
