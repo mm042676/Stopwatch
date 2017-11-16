@@ -64,6 +64,18 @@ namespace Stopwatch.ViewModel
             {
                 _StopwatchInstance.Reset();
             });
+
+            Stop = new Command(() =>
+            {
+                _StopwatchInstance.Stop();
+            });
+
+            Start = new Command(() =>
+            {
+                _StopwatchInstance.Start();
+                TimerTime = "1:00";
+                Device.StartTimer(TimeSpan.FromMilliseconds(50), _timerTick);
+            });
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -79,18 +91,16 @@ namespace Stopwatch.ViewModel
             return _StopwatchInstance.IsRunning();
         }
         
-        public void Stop()
+ /*       public void Stop()
         {
             _StopwatchInstance.Stop();
-        }
+        } 
 
         public void Start()
         {
-            _StopwatchInstance.Start();
-            TimerTime = "1:00";
-            Device.StartTimer(TimeSpan.FromMilliseconds(50), _timerTick);
-        }
 
+        }
+        */
 
         private bool _timerTick()
         {
@@ -105,6 +115,7 @@ namespace Stopwatch.ViewModel
         }
 
         public ICommand Reset { get; set; }
-
+        public ICommand Stop { get; set; }
+        public ICommand Start { get; set; }
     }
 }
