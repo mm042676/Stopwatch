@@ -18,29 +18,10 @@ namespace Stopwatch.ViewModel
     // todo: implement the code commented below in an icommand interface
     // https://developer.xamarin.com/guides/xamarin-forms/xaml/xaml-basics/data_bindings_to_mvvm/
 
-    /*
-     void OnStartButtonClicked(object sender, EventArgs args)
-        {
-            if (StopwatchViewModel.IsRunning())
-            {
-                StartStopButton.Text = "Start";
-                _viewModel.Stop();
-            }
-            else
-            {
-                StartStopButton.Text = "Stop";
-                _viewModel.Start();
-            }
-        }
-        void OnResetButtonClicked(object sender, EventArgs arg)
-        {
-            _viewModel.Reset();
-        }
-         */
+
     class StopwatchViewModel : INotifyPropertyChanged
     {
         private string _TimerTime;
-        public string startStopText = "Start";
         public string TimerTime
         {
             get
@@ -51,15 +32,27 @@ namespace Stopwatch.ViewModel
                 _TimerTime = value;
                 NotifyPropertyChanged("TimerTime");
             }
-        }        
-   
+        }
+        private string _startStopText;
+        public string StartStopText
+        {
+            get
+            {
+                return _startStopText;
+            }
+            private set
+            {
+                _startStopText = value;
+                NotifyPropertyChanged("StartStopText");
+            }
+        }
+
         private StopwatchModel _StopwatchInstance = new StopwatchModel();
 
         public StopwatchViewModel()
         {
             TimerTime = "0:00";
-
-            // I think reset works; need to link it to the xaml file
+            StartStopText = "Start";
 
             ResetCommand = new Command(() =>
             {
@@ -68,16 +61,17 @@ namespace Stopwatch.ViewModel
 
             StartStopCommand = new Command(() =>
             {
-                if (startStopText == "Start")
+                if (StartStopText == "Start")
                 {
                     _StopwatchInstance.Start();
                     Device.StartTimer(TimeSpan.FromMilliseconds(50), _timerTick);
-                    startStopText = "Stop";
+                    StartStopText = "Stop";
+                    TimerTime = "0:00";
                 }
                 else
                 {
                     _StopwatchInstance.Stop();
-                    startStopText = "Start";
+                    StartStopText = "Start";
                 }
             });
 
@@ -96,22 +90,14 @@ namespace Stopwatch.ViewModel
             return _StopwatchInstance.IsRunning();
         }
         
- /*       public void Stop()
-        {
-            _StopwatchInstance.Stop();
-        } 
 
-        public void Start()
-        {
-
-        }
-        */
 
         private bool _timerTick()
         {
-            // System.TimeSpan? elapsed = DateTime.Now.Subtract((_StopwatchInstance.Started);
 
             TimeSpan? elapsed = DateTime.Now - _StopwatchInstance.Started;
+            if (_StopwatchInstance.SavedTime != null)
+                elapsed += _StopwatchInstance.SavedTime;
             TimerTime = elapsed.ToString();
             if (_StopwatchInstance.Started == null)
                 return false;

@@ -9,6 +9,7 @@ namespace Stopwatch.Model
     public partial class StopwatchModel
     {
         public DateTime? Started { get; private set; }
+        public TimeSpan? SavedTime { get; private set; }
 
         public void Start()
         {
@@ -17,12 +18,15 @@ namespace Stopwatch.Model
 
         public void Stop()
         {
+            // need to fix this - SavedTime is null so the below calculation fails
+            SavedTime += DateTime.Now - Started;
             Started = null;
         }
 
         public void Reset()
         {
             Started = null;
+            SavedTime = null;
         }
 
         public StopwatchModel()
