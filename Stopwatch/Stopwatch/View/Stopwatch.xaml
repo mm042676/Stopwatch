@@ -38,10 +38,10 @@
             </Label>
             <Button 
                     x:Name="StartStopButton"
-                    Text="Start"
+                    Text="{Binding startStopText}"
                     Grid.Row="2"
                     Grid.Column="0"
-                    Clicked="OnStartButtonClicked"
+                    Command="{Binding StartStopCommand}"
                 
                     />
             <Button 
@@ -49,7 +49,7 @@
                     Text="Reset"
                     Grid.Row="2"
                     Grid.Column="1"
-                    Clicked="OnResetButtonClicked"
+                    Command="{Binding ResetCommand}"
                 />
 
         </Grid>

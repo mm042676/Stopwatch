@@ -61,12 +61,12 @@ namespace Stopwatch.ViewModel
 
             // I think reset works; need to link it to the xaml file
 
-            Reset = new Command(() =>
+            ResetCommand = new Command(() =>
             {
                 _StopwatchInstance.Reset();
             });
 
-            StartStop = new Command(() =>
+            StartStopCommand = new Command(() =>
             {
                 if (startStopText == "Start")
                 {
@@ -119,7 +119,7 @@ namespace Stopwatch.ViewModel
                 return true;
         }
 
-        public ICommand Reset { get; set; }
-        public ICommand StartStop { get; set; }
+        public ICommand ResetCommand { get; set; }
+        public ICommand StartStopCommand { get; set; }
     }
 }
