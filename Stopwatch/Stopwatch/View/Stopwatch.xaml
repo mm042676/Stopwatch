@@ -38,7 +38,7 @@
             </Label>
             <Button 
                     x:Name="StartStopButton"
-                    Text="{Binding startStopText}"
+                    Text="{Binding StartStopText}"
                     Grid.Row="2"
                     Grid.Column="0"
                     Command="{Binding StartStopCommand}"
