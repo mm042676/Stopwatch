@@ -40,6 +40,7 @@ namespace Stopwatch.ViewModel
     class StopwatchViewModel : INotifyPropertyChanged
     {
         private string _TimerTime;
+        public string startStopText = "Start";
         public string TimerTime
         {
             get
@@ -65,17 +66,21 @@ namespace Stopwatch.ViewModel
                 _StopwatchInstance.Reset();
             });
 
-            Stop = new Command(() =>
+            StartStop = new Command(() =>
             {
-                _StopwatchInstance.Stop();
+                if (startStopText == "Start")
+                {
+                    _StopwatchInstance.Start();
+                    Device.StartTimer(TimeSpan.FromMilliseconds(50), _timerTick);
+                    startStopText = "Stop";
+                }
+                else
+                {
+                    _StopwatchInstance.Stop();
+                    startStopText = "Start";
+                }
             });
 
-            Start = new Command(() =>
-            {
-                _StopwatchInstance.Start();
-                TimerTime = "1:00";
-                Device.StartTimer(TimeSpan.FromMilliseconds(50), _timerTick);
-            });
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -115,7 +120,6 @@ namespace Stopwatch.ViewModel
         }
 
         public ICommand Reset { get; set; }
-        public ICommand Stop { get; set; }
-        public ICommand Start { get; set; }
+        public ICommand StartStop { get; set; }
     }
 }
