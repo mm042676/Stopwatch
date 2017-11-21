@@ -13,12 +13,6 @@ namespace Stopwatch.ViewModel
 {
     using Model;
 
- 
-
-    // todo: implement the code commented below in an icommand interface
-    // https://developer.xamarin.com/guides/xamarin-forms/xaml/xaml-basics/data_bindings_to_mvvm/
-
-
     class StopwatchViewModel : INotifyPropertyChanged
     {
         private string _TimerTime;
@@ -51,11 +45,11 @@ namespace Stopwatch.ViewModel
 
         public StopwatchViewModel()
         {
-            TimerTime = "0:00";
-            StartStopText = "Start";
+            InitialState();
 
             ResetCommand = new Command(() =>
             {
+                InitialState();
                 _StopwatchInstance.Reset();
             });
 
@@ -66,7 +60,6 @@ namespace Stopwatch.ViewModel
                     _StopwatchInstance.Start();
                     Device.StartTimer(TimeSpan.FromMilliseconds(50), _timerTick);
                     StartStopText = "Stop";
-                    TimerTime = "0:00";
                 }
                 else
                 {
@@ -75,6 +68,12 @@ namespace Stopwatch.ViewModel
                 }
             });
 
+        }
+
+        void InitialState()
+        {
+            TimerTime = "00:00:00.00";
+            StartStopText = "Start";
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -98,11 +97,14 @@ namespace Stopwatch.ViewModel
             TimeSpan? elapsed = DateTime.Now - _StopwatchInstance.Started;
             if (_StopwatchInstance.SavedTime != null)
                 elapsed += _StopwatchInstance.SavedTime;
-            TimerTime = elapsed.ToString();
             if (_StopwatchInstance.Started == null)
                 return false;
             else
+            {
+                TimerTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", elapsed.Value.Hours, elapsed.Value.Minutes, elapsed.Value.Seconds, elapsed.Value.Milliseconds/10);
+ //               TimerTime = elapsed.ToString();
                 return true;
+            }    
         }
 
         public ICommand ResetCommand { get; set; }
