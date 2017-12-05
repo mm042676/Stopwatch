@@ -40,7 +40,32 @@ namespace Stopwatch.ViewModel
                 NotifyPropertyChanged("StartStopText");
             }
         }
-
+        private int _StopwatchFontSize;
+        public int StopwatchFontSize
+        {
+            get
+            {
+                return _StopwatchFontSize;
+            }
+            private set
+            {
+                _StopwatchFontSize = value;
+                NotifyPropertyChanged("StopwatchFontSize");
+            }
+        }
+        private int _TimerFontSize;
+        public int TimerFontSize
+        {
+            get
+            {
+                return _TimerFontSize;
+            }
+            private set
+            {
+                _TimerFontSize = value;
+                NotifyPropertyChanged("TimerFontSize");
+            }
+        }
         private StopwatchModel _StopwatchInstance = new StopwatchModel();
 
         public StopwatchViewModel()
@@ -74,6 +99,8 @@ namespace Stopwatch.ViewModel
         {
             TimerTime = "00:00:00.00";
             StartStopText = "Start";
+            StopwatchFontSize = 60;
+            TimerFontSize = 100;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
