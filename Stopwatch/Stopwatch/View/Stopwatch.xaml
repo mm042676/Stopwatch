@@ -7,6 +7,11 @@
     <ContentPage.BindingContext>
         <mvvm:StopwatchViewModel></mvvm:StopwatchViewModel>
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Int32 x:Key="StopwatchFontSize">60</x:Int32>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
             <Grid.RowDefinitions>
@@ -23,16 +28,16 @@
                     Grid.Row="0"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
-                    FontSize="{Binding StopwatchFontSize}"
-                    VerticalTextAlignment="Center" 
-                    HorizontalTextAlignment="Center" />
+                    FontSize="{DynamicResource StopwatchFontSize}"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"             />
             <!--                -->
             <Label              
                     Text="{Binding TimerTime}"
                     Grid.Row="1"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
-                    FontSize="{Binding TimerFontSize}"
+                    FontSize="Large"
                     VerticalTextAlignment="Center" 
                     HorizontalTextAlignment="Center">
             </Label>
