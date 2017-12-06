@@ -17,11 +17,9 @@ namespace Stopwatch.View
         public StopwatchView()
         {
             InitializeComponent();
-//            _viewModel = new ViewModel.StopwatchViewModel();
-
+            //            _viewModel = new ViewModel.StopwatchViewModel();
 
         }
 
-        
     }
 }
