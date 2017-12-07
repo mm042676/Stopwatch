@@ -12,14 +12,16 @@ namespace Stopwatch.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class StopwatchView : ContentPage
     {
-//        private ViewModel.StopwatchViewModel _viewModel;
 
         public StopwatchView()
         {
             InitializeComponent();
-            //            _viewModel = new ViewModel.StopwatchViewModel();
-
         }
-
+        protected override void OnSizeAllocated(double width, double height)
+        {
+            base.OnSizeAllocated(width, height); //must be called
+            Resources["StopwatchFontSize"] = width / 12;
+            Resources["TimerFontSize"] = width / 12;
+        }
     }
 }
