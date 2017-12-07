@@ -10,6 +10,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <x:Int32 x:Key="StopwatchFontSize">60</x:Int32>
+            <x:Int32 x:Key="TimerFontSize">100</x:Int32>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -37,7 +38,7 @@
                     Grid.Row="1"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
-                    FontSize="Large"
+                    FontSize="{DynamicResource TimerFontSize}"
                     VerticalTextAlignment="Center" 
                     HorizontalTextAlignment="Center">
             </Label>
